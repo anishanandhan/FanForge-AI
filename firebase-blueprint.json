@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with gamification stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "score": { "type": "number" },
+        "streak": { "type": "number" },
+        "level": { "type": "string" }
+      },
+      "required": ["uid", "name"]
+    },
+    "Prediction": {
+      "title": "Prediction",
+      "description": "User prediction for a match",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "matchId": { "type": "string" },
+        "winner": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/predictions/{predictionId}": {
+      "schema": "Prediction",
+      "description": "Match predictions"
+    }
+  }
+}
